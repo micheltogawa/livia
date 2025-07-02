@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Para Lívia 💖</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0; padding: 0;
+    }
+    body {
+      background: radial-gradient(circle at top right, #cfe3ff, #f0f5ff);
+      font-family: 'Quicksand', sans-serif;
+      color: #1a2a6c;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding-bottom: 140px;
+      overflow-x: hidden;
+    }
+    #marca {
+      font-size: 0.75rem;
+      color: #888;
+      text-align: center;
+      padding: 0.5rem 0;
+    }
+    header {
+      text-align: center;
+      padding: 1.5rem 2rem 2rem 2rem;
+      font-size: 2.2rem;
+      background-color: #e3f2fd;
+    }
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 2rem;
+      text-align: center;
+      gap: 2rem;
+      max-width: 700px;
+      margin: 0 auto;
+      width: 90%;
+    }
+    #botoes-iniciais {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    button {
+      background: linear-gradient(to right, #4a90e2, #357ABD);
+      border: none;
+      color: white;
+      padding: 14px 36px;
+      border-radius: 40px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    #mensagem {
+      background: #fff0f6cc;
+      padding: 1.8rem 2rem;
+      border-radius: 20px;
+      max-width: 600px;
+      font-size: 1.25rem;
+      line-height: 1.6;
+      color: #4b004b;
+      text-align: left;
+      white-space: normal;
+    }
+    #mensagem.oculto {
+      display: none;
+    }
+    #quiz-container {
+      display: none;
+    }
+    .quiz-pergunta {
+      font-size: 1.3rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .quiz-input {
+      width: 100%;
+      padding: 10px;
+      font-size: 1.1rem;
+      border-radius: 8px;
+      border: 1px solid #aaa;
+      margin-bottom: 10px;
+    }
+    .quiz-feedback {
+      font-size: 1rem;
+      color: #d32f2f;
+      margin-bottom: 10px;
+    }
+    #btnVoltar {
+      display: none;
+      margin-top: 1rem;
+      background: #4a90e2;
+      color: white;
+      padding: 12px 30px;
+      font-size: 1.1rem;
+      border-radius: 30px;
+      border: none;
+      cursor: pointer;
+    }
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 1rem;
+      color: #1a2a6c;
+      background: #e3f2fd;
+      margin-top: auto;
+    }
+    #player-container {
+      position: fixed;
+      bottom: 0; left: 0; width: 100%;
+      background: #e3f2fdcc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 15px;
+      z-index: 1000;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+  </style>
+</head>
+<body>
+  <div id="marca">site feito por Michel Togawa</div>
+  <header>
+    💖 Oi Lívia, esse site é só pra você 💖
+  </header>
+  <main>
+    <div id="botoes-iniciais">
+      <button onclick="mostrarMensagem()">Clique aqui para revelar a mensagem</button>
+      <button onclick="abrirLabirinto()">Ir para o Labirinto</button>
+    </div>
+    <div id="mensagem" class="oculto">
+      Oii Lívia, tudo bem? Espero que simmm! Você sabe o quanto é importante para mim? Você é tudo que eu preciso para viver. Sem você, parece que o mundo fica de outra cor. Mas quando você chega, é como se você colorisse tudo que está vazio. Mesmo nos meus dias mais tristes, sei que você estará lá para me acolher e me dar conselhos. Saiba que você é uma pessoa muito especial para mim e para todos que te conhecem. Nunca desista dos seus sonhos! Você é muito importante para mim. Te amo muito, mesmo! Espero que você nunca pare de ser essa pessoa incrível que é. Você é esforçada, carinhosa e dedicada em tudo que faz. Se eu fosse escrever todas as suas qualidades, não caberia aqui. Te amooooooo muito! 💖
+    </div>
+    <div id="quiz-container">
+      <div class="quiz-pergunta" id="pergunta"></div>
+      <input type="text" id="resposta" class="quiz-input" placeholder="Digite sua resposta..." />
+      <div class="quiz-feedback" id="feedback"></div>
+      <button onclick="verificarResposta()">Enviar</button>
+    </div>
+    <button id="btnVoltar" onclick="voltarInicio()">Voltar</button>
+  </main>
+  <footer>
+    Criado com carinho para a melhor irmã do mundo 💙
+  </footer>
+  <div id="player-container">
+    <iframe src="https://open.spotify.com/embed/track/5U28PY9MekLyCBYtLHGQpe" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media" loading="lazy"></iframe>
+    <iframe src="https://open.spotify.com/embed/track/1de5qtvROLxLtMAQrmZjev" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media" loading="lazy"></iframe>
+    <iframe src="https://open.spotify.com/embed/track/4xwPOyN9VgaTPehdsLiYul" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media" loading="lazy"></iframe>
+    <iframe src="https://open.spotify.com/embed/track/0WKqlUwMcxvJj8HS5Kah7Q" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media" loading="lazy"></iframe>
+  </div>
+  <script>
+    const perguntas = [
+      { texto: "Que dia eu nasci?", respostas: ["11", "11º", "onze"] },
+      { texto: "Qual o mês que eu nasci?", respostas: ["maio", "05", "5"] },
+      { texto: "Qual o ano que eu nasci?", respostas: ["2012"] },
+      { texto: "Quantos anos eu tenho?", respostas: ["12"] },
+      { texto: "Qual rede social eu mais uso?", respostas: ["tiktok", "tik tok", "tik-tok"] }
+    ];
+
+    let etapa = 0;
+
+    function mostrarMensagem() {
+      document.getElementById("mensagem").classList.remove("oculto");
+      document.getElementById("botoes-iniciais").style.display = "none";
+      document.getElementById("btnVoltar").style.display = "inline-block";
+      document.getElementById("quiz-container").style.display = "none";
+    }
+
+    function abrirLabirinto() {
+      document.getElementById("quiz-container").style.display = "block";
+      document.getElementById("mensagem").classList.add("oculto");
+      document.getElementById("botoes-iniciais").style.display = "none";
+      document.getElementById("btnVoltar").style.display = "inline-block";
+      etapa = 0;
+      mostrarPergunta();
+    }
+
+    function mostrarPergunta() {
+      document.getElementById("pergunta").textContent = perguntas[etapa].texto;
+      document.getElementById("resposta").value = "";
+      document.getElementById("feedback").textContent = "";
+    }
+
+    function verificarResposta() {
+      const resposta = document.getElementById("resposta").value.trim().toLowerCase();
+      const corretas = perguntas[etapa].respostas.map(r => r.toLowerCase());
+      if (corretas.includes(resposta)) {
+        etapa++;
+        if (etapa < perguntas.length) {
+          mostrarPergunta();
+        } else {
+          document.getElementById("quiz-container").innerHTML = '<p style="font-size:1.3rem;font-weight:bold;">Parabéns! Você completou o labirinto 🎉</p>';
+        }
+      } else {
+        document.getElementById("feedback").textContent = "Resposta incorreta. Tente novamente!";
+      }
+    }
+
+    function voltarInicio() {
+      document.getElementById("mensagem").classList.add("oculto");
+      document.getElementById("quiz-container").style.display = "none";
+      document.getElementById("botoes-iniciais").style.display = "flex";
+      document.getElementById("btnVoltar").style.display = "none";
+    }
+  </script>
+</body>
+</html>
